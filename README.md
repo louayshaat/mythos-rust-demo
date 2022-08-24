@@ -30,3 +30,8 @@ gcloud builds submit --tag gcr.io/core-demos/demo --timeout=2000
 gcloud config set builds/use_kaniko True
 gcloud config list
 ```
+
+#### Deploy to CloudRun
+```
+gcloud run deploy cloud-run-actix-hello --project core-demos --image gcr.io/core-demos/cloud-run-actix-hello --platform managed --region us-central1 --port 8080 --cpu 1 --memory 512Mi --concurrency 80 --timeout 300 --service-account 919060000353-compute@developer.gserviceaccount.com --clear-env-vars
+```
