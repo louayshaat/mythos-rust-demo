@@ -13,7 +13,7 @@ async fn main() -> std::io::Result<()> {
 
     let port = match std::env::var("PORT"){
         Ok(port) => port,
-        _ => String::from("8080")
+        _ => String::from("8080"),
     };
 
     let address = format!("0.0.0.0:{}",port);
