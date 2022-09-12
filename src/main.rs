@@ -9,22 +9,19 @@ async fn greet(name: web::Path<String>) -> impl Responder {
 
 #[actix_web::main] // or #[tokio::main]
 async fn main() -> std::io::Result<()> {
-
-
-    let port = match std::env::var("PORT"){
+    let port = match std::env::var("PORT") {
         Ok(port) => port,
         _ => String::from("8080"),
     };
 
-    let address = format!("0.0.0.0:{}",port);
-    
+    let address = format!("0.0.0.0:{}", port);
 
     HttpServer::new(|| {
         App::new()
             .route("/hello", web::get().to(|| async { "Hello World!" }))
             .service(greet)
     })
-    .bind(address.clone ())?
+    .bind(address.clone())?
     .run()
     .await
 }
