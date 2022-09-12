@@ -28,7 +28,7 @@ gcloud builds submit --tag gcr.io/core-demos/demo --timeout=2000
 
 ```
 gcloud config set builds/use_kaniko True
-gcloud config set builds/kaniko_cache_ttl 180
+gcloud config set builds/kaniko_cache_ttl 90
 gcloud config list
 ```
 
